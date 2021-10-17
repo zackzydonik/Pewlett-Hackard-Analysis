@@ -173,3 +173,29 @@ INNER JOIN departments AS d
 ON (de.dept_no = d.dept_no)
 WHERE d.dept_name IN ('Sales','Development');
 
+SELECT * FROM retirement_titles
+SELECT * FROM unique_titles
+SELECT * FROM retiring_titles
+SELECT * FROM mentorship_eligibility
+
+SELECT SUM(rt.count) FROM retiring_titles as rt
+
+SELECT COUNT(me.emp_no), d.dept_name
+FROM mentorship_eligibility as me
+INNER JOIN dept_emp as de
+ON (me.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+GROUP BY (d.dept_name)
+
+SELECT COUNT(me.emp_no), d.dept_name
+FROM mentorship_eligibility as me
+INNER JOIN dept_emp as de
+ON (me.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+GROUP BY (d.dept_name)
+
+SELECT COUNT(me.emp_no), me.title
+FROM mentorship_eligibility as me
+GROUP BY (me.title)
